@@ -1,4 +1,5 @@
 USE codeup_test_db;
+TRUNCATE albums;
 INSERT INTO albums (ARTIST, NAME, RELEASE_DATE, GENRE, SALES)
 VALUES ('Michael Jackson', 'Thriller',	1982,	'Pop, rock, R&B', 47.3),
 ('Eagles', 'Their Greatest Hits (1971–1975)',	1976,	'Country rock, soft rock, folk rock', 41.2),
@@ -15,11 +16,11 @@ VALUES ('Michael Jackson', 'Thriller',	1982,	'Pop, rock, R&B', 47.3),
 ('Alanis Morissette', 'Jagged Little Pill',	1995,	'Alternative rock', 24.4),
 ('Shania Twain', 'Come On Over',	1997,	'Country, pop', 29.6),
 ('Celine Dion', 'Falling into You',	1996,	'Pop, soft rock', 20.2),
-('The Beatles','Sgt. Pepper`s Lonely Hearts Club Band',	1967,	'Rock', 18.2),
+('The Beatles','Sgt. Pepper''s Lonely Hearts Club Band',	1967,	'Rock', 18.2),
 ('Various artists', 'Dirty Dancing',	1987,	'Pop, rock, R&B', 17.9),
 ('Michael Jackson', 'Dangerous',	1991,	'Rock, funk, pop', 17.3),
 ('Adele', '21',	2011,	'Pop, soul', 25.3),
-('Celine Dion','Let`s Talk About Love',	1997,	'Pop, soft rock', 19.3),
+('Celine Dion','Let''s Talk About Love',	1997,	'Pop, soft rock', 19.3),
 ('The Beatles', '1',	2000,	'Rock', 23.4),
 ('ABBA', 'Gold: Greatest Hits',	1992,	'Pop, disco', 22.7),
 ('Madonna', 'The Immaculate Collection',	1990,	'Pop, dance', 19.4),
@@ -31,4 +32,4 @@ VALUES ('Michael Jackson', 'Thriller',	1982,	'Pop, rock, R&B', 47.3),
 ('Nirvana', 'Nevermind',	1991,	'Grunge, alternative rock', 16.7),
 ('Pink Floyd', 'The Wall',	1979,	'Progressive rock', 18.6),
 ('Santana', 'Supernatural',	1999,	'Latin rock', 20.5),
-('Guns N` Roses', 'Appetite for Destruction',	1987,	'Hard rock', 21.6)
+('Guns N'' Roses', 'Appetite for Destruction',	1987,	'Hard rock', 21.6)
