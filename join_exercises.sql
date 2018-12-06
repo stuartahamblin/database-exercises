@@ -1,3 +1,4 @@
+# EMPLOYEES DATABASE
 # 1. Create a file named join_exercises.sql to do your work in.
 
 # 2. Using the example in the Associative Table Joins section as a guide,
@@ -14,6 +15,19 @@
 # Quality Management | Dung Pesch
 # Research           | Hilary Kambil
 # Sales              | Hauke Zhang
+USE employees;
+show tables;
+SELECT * FROM departments;
+SELECT * FROM dept_manager;
+SELECT * FROM employees;
+SELECT d.dept_name AS 'department name', concat(e.first_name, ' ', e.last_name) AS manager_name
+FROM departments AS d
+  JOIN dept_manager as dm
+      ON dm.dept_no = d.dept_no
+  JOIN employees AS e
+      ON e.emp_no = dm.emp_no
+WHERE dm.to_date > NOW()
+ORDER BY d.dept_name;
 
 # 3. Find the name of all departments currently managed by women.
 # Department Name | Manager Name
@@ -22,6 +36,15 @@
 # Finance         | Isamu Legleitner
 # Human Resources | Karsetn Sigstam
 # Research        | Hilary Kambil
+SELECT d.dept_name AS 'department name', concat(e.first_name, ' ', e.last_name) AS manager_name
+FROM departments AS d
+       JOIN dept_manager as dm
+         ON dm.dept_no = d.dept_no
+       JOIN employees AS e
+         ON e.emp_no = dm.emp_no
+WHERE dm.to_date > NOW()
+AND e.gender LIKE 'F'
+ORDER BY d.dept_name;
 
 # 4. Find the current titles of employees currently working in the Customer Service department.
 # Title              | Count
@@ -33,6 +56,18 @@
 # Senior Staff       | 11268
 # Staff              |  3574
 # Technique Leader   |   241
+    # SELECT * FROM titles;
+    # SELECT * FROM dept_emp;
+    # SELECT * FROM departments;
+SELECT t.title as 'Title', count(*) as 'Count'
+FROM titles AS t
+JOIN dept_emp as de
+ON de.emp_no = t.emp_no
+JOIN departments as d
+ON d.dept_no = de.dept_no
+WHERE d.dept_name LIKE 'Customer Service'
+AND t.to_date > NOW()
+GROUP BY t.title;
 
 # 5. Find the current salary of all current managers.
 # Department Name    | Name              | Salary
@@ -51,3 +86,22 @@
 #     Employee Name | Department Name  |  Manager Name
 #     --------------|------------------|-----------------
 #      Huan Lortz   | Customer Service | Yuchang Weedman
+
+USE employees;
+show tables;
+SELECT * FROM departments;
+SELECT * FROM dept_manager;
+SELECT * FROM employees;
+SELECT * FROM salaries;
+SELECT d.dept_name AS 'department name', concat(e.first_name, ' ', e.last_name) AS manager_name, s.salary AS 'Salary'
+FROM departments AS d
+       JOIN dept_manager as dm
+         ON dm.dept_no = d.dept_no
+       JOIN employees AS e
+         ON e.emp_no = dm.emp_no
+       JOIN salaries AS s
+         ON s.emp_no = e.emp_no
+WHERE dm.to_date > NOW()
+AND s.to_date > NOW()
+ORDER BY d.dept_name;
+
