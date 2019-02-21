@@ -38,6 +38,9 @@ INSERT INTO users (name, email, role_id) VALUES
                                                 ('justin', 'justin@example.com', null),
                                                 ('karen', 'karen@example.com', 2),
                                                 ('kyla', 'kyla@example.com', 2);
+show tables;
+select * from users;
+select * from roles;
 
 # 3. Use join, left join, and right join to combine results from the users and roles tables as we did in
 # the lesson. Before you run each query, guess the expected number of results.
